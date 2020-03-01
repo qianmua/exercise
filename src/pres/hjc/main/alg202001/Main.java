@@ -1,6 +1,7 @@
 package pres.hjc.main.alg202001;
 
 import java.math.BigInteger;
+import java.util.TreeSet;
 
 /**
  * Created by IntelliJ IDEA.
@@ -103,20 +104,20 @@ public class Main {
      */
     private static void pintFangGuaiQuan(){
         int i = 0;
-        int a = 1;
-        while (a++ < 100){
-            while (i++ <= 100){
-                int temp = 0;
-                String s = String.valueOf(a);
-                for (int j = 0; j < s.length(); j++) {
-                    temp += Integer.parseInt(s.substring(j,j+1));
-                }
-                if (temp <= 9) break;
-                System.out.println(temp);
+        int a = 99;
+        TreeSet treeSet = new TreeSet();
+        while (i++ <= 10000){
+            String s = String.valueOf(a);
+            int b = 0;
+            for (int j = 0; j < s.length(); j++) {
+                b += Math.pow(Integer.parseInt(s.substring(j,j+1)),2);
             }
+            treeSet.add(b);
+            a = b;
         }
-
+        treeSet.forEach(System.out::println); // 162
     }
+
 
     public static void main(String[] args) {
         pintFangGuaiQuan();
