@@ -102,6 +102,19 @@ public class Main {
         注意：你提交的应该是一个整数，不要填写任何多余的内容或说明性文字。
      */
     private static void pintFangGuaiQuan(){
+        int i = 0;
+        int a = 1;
+        while (a++ < 100){
+            while (i++ <= 100){
+                int temp = 0;
+                String s = String.valueOf(a);
+                for (int j = 0; j < s.length(); j++) {
+                    temp += Integer.parseInt(s.substring(j,j+1));
+                }
+                if (temp <= 9) break;
+                System.out.println(temp);
+            }
+        }
 
     }
 
