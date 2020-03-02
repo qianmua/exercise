@@ -1,6 +1,8 @@
 package pres.hjc.main.alg202001;
 
 import java.math.BigInteger;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.TreeSet;
 
 /**
@@ -118,8 +120,75 @@ public class Main {
         treeSet.forEach(System.out::println); // 162
     }
 
+    /*
+
+        凑算式
+
+             B      DEF
+        A + --- + ------- = 10
+             C      GHI
+
+        （如果显示有问题，可以参见【图1.jpg】）
+
+
+        这个算式中A~I代表1~9的数字，不同的字母代表不同的数字。
+
+        比如：
+        6+8/3+952/714 就是一种解法，
+        5+3/1+972/486 是另一种解法。
+
+        这个算式一共有多少种解法？
+
+        注意：你提交应该是个整数，不要填写任何多余的内容或说明性文字。
+
+     */
+    //全排列，
+    private static void couSuanShi(){
+        int[] arr = {1,2,3,4,5,6,7,8,9};
+
+        arrange(arr,0 , arr.length - 1);
+    }
+
+    private static void add(int arr[]){
+        List<int[]> list = new ArrayList<>();
+        //0 2 678 + 1 678 + 2 345 = 10 2 678
+        //  + arr[1]*arr[6]arr[7]arr[8] + arr[2]*arr[3]arr[4]arr[5] = 10*arr[2]*arr[6]arr[7]arr[8]
+        if (arr[0]*arr[2]*Integer.parseInt(arr[6]+""+arr[7]+""+arr[8]) +
+                arr[2]*Integer.parseInt(arr[3]+""+arr[4]+""+arr[5]) ==
+        10 * arr[2] * Integer.parseInt(arr[6]+""+arr[7]+""+arr[8])){
+            list.add(arr);
+        }
+        for (int[] ints : list) {
+//            System.out.println(ints);
+            for (int anInt : ints) {
+                System.out.print(anInt);
+            }
+            System.out.println();
+        }
+    }
+    private static void arrange(int[] arr , int a, int b){
+        if ( a == b){
+
+            add(arr);
+            return ;
+        }
+        for (int i = a; i <= b ; i++) {
+            swap(arr,i,a);
+            arrange(arr,a + 1,b);
+            swap(arr,i,a);
+        }
+
+    }
+    private static void swap(int arr[] , int a, int b){
+
+        int temp = arr[a];
+        arr[a] = arr[b];
+        arr[b] = temp;
+
+    }
+
 
     public static void main(String[] args) {
-        pintFangGuaiQuan();
+        couSuanShi();
     }
 }
