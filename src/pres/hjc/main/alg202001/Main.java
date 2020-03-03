@@ -143,32 +143,40 @@ public class Main {
 
      */
     //全排列，
+    static List<int[]> list = new ArrayList<>();
     private static void couSuanShi(){
         int[] arr = {1,2,3,4,5,6,7,8,9};
-
         arrange(arr,0 , arr.length - 1);
+        System.out.println(list.size());
+        /*for (int[] ints : list) {
+            for (int anInt : ints) {
+                System.out.print(anInt);
+            }
+            System.out.println();
+        }*/
     }
 
     private static void add(int arr[]){
-        List<int[]> list = new ArrayList<>();
+//        list = new ArrayList<>();
         //0 2 678 + 1 678 + 2 345 = 10 2 678
         //  + arr[1]*arr[6]arr[7]arr[8] + arr[2]*arr[3]arr[4]arr[5] = 10*arr[2]*arr[6]arr[7]arr[8]
         if (arr[0]*arr[2]*Integer.parseInt(arr[6]+""+arr[7]+""+arr[8]) +
-                arr[2]*Integer.parseInt(arr[3]+""+arr[4]+""+arr[5]) ==
+                arr[1]*Integer.parseInt(arr[3]+""+arr[4]+""+arr[5]) ==
         10 * arr[2] * Integer.parseInt(arr[6]+""+arr[7]+""+arr[8])){
             list.add(arr);
         }
-        for (int[] ints : list) {
+
+        /*for (int[] ints : list) {
 //            System.out.println(ints);
             for (int anInt : ints) {
                 System.out.print(anInt);
             }
             System.out.println();
-        }
+        }*/
     }
+
     private static void arrange(int[] arr , int a, int b){
         if ( a == b){
-
             add(arr);
             return ;
         }
@@ -187,8 +195,8 @@ public class Main {
 
     }
 
-
     public static void main(String[] args) {
         couSuanShi();
     }
 }
+
