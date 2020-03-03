@@ -241,7 +241,7 @@ public class Main {
      注意：不要使用package语句。不要使用jdk1.7及以上版本的特性。
      注意：主类的名字必须是：Main，否则按无效代码处理。
      */
-    private static void BingBaoShu(){
+    private static void bingBaoShu(){
         Scanner scanner = new Scanner(System.in);
         int a = scanner.nextInt();
 //        TreeSet set = new TreeSet();
@@ -268,9 +268,8 @@ public class Main {
             }
 
     }
-
     public static void main(String[] args) {
-        BingBaoShu();
+        bingBaoShu();
     }
 }
 
