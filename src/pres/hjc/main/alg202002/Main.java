@@ -1,9 +1,6 @@
 package pres.hjc.main.alg202002;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.TreeSet;
+import java.util.*;
 
 /**
  * Created by IntelliJ IDEA.
@@ -397,7 +394,7 @@ X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X
 最后，所有的金属块的重量都严格精确地平分落在最底层的电子秤上。
 电子秤的计量单位很小，所以显示的数字很大。
 
-工作人员发现，其中读数最小的电子秤的示数为：2086458231
+工作人员发现，其中读数最小的电子秤的示数为：2086458231000
 
 请你推算出：读数最大的电子秤的示数为多少？
 
@@ -413,10 +410,29 @@ X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X
 
      */
     private static void chengYaJiSuan(){
-
+        Scanner scanner = new Scanner(System.in);
+        double[] arr1 ;
+        for (int i = 2; i <= 29 ; i++) {
+            int temp = 7000;
+            arr1 = new double[(i - 1) * 2];
+            for (int j = 0; j < arr1.length; j++) {
+                arr1[j] = (temp) / 2;
+            }
+            for (int j = 0; j < i ; j++) {
+                if (i != 1){
+                    temp = scanner.nextInt() * 1000;
+                    temp += arr1[j];
+                }else{
+                    temp = scanner.nextInt() * 1000;
+                }
+                if (i == 29){
+                    System.out.println(temp);
+                }
+            }
+        }
     }
 
     public static void main(String[] args) {
-        zhiPaiSanJiaoXing();
+        chengYaJiSuan();
     }
 }
