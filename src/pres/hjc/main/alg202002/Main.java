@@ -293,7 +293,9 @@ C:
 
 A,2,3,4,5,6,7,8,9 共9张纸牌排成一个正三角形（A按1计算）。要求每个边的和相等。
 下图就是一种排法（如有对齐问题，参看p1.png）。
-
+1 + 2 + 3 + 4
+4 + 5 + 6 + 7
+7 + 8 + 9 + 1
       A
      9 6
     4   8
@@ -320,11 +322,35 @@ A,2,3,4,5,6,7,8,9 共9张纸牌排成一个正三角形（A按1计算）。要�
 
 
      */
+    static int count = 0;
     private static void zhiPaiSanJiaoXing(){
+        int[] arr = {1,2,3,4,5,6,7,8,9};
+        all(arr,0,arr.length-1);
+        System.out.println(count/6);
+    }
 
+    private static void all(int[] arr , int s ,int e){
+        if (s == e){
+            if ((arr[0] + arr[1] + arr[2] + arr[3]) == (arr[3] + arr[4] + arr[5] + arr[6])
+                    && (arr[3] + arr[4] + arr[5] + arr[6]) == (arr[6] + arr[7] + arr[8] + arr[0])){
+                count++;
+            }
+            return ;
+        }
+        for (int i = s; i <= e ; i++) {
+            swap(arr,i, s);
+            all(arr, s + 1, e);
+            swap(arr,i , s);
+        }
+    }
+
+    private static void swap(int[] arr,int a,int b){
+        int temp = arr[a];
+        arr[a] = arr[b];
+        arr[b] = temp;
     }
 
     public static void main(String[] args) {
-        xingQu();
+        zhiPaiSanJiaoXing();
     }
 }
