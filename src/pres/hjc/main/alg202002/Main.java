@@ -502,7 +502,7 @@ public class A
 
         while(p<=row){
             a[p] = 1;
-            for(int q = 0; q < 1; q++) a[q] = a[q] + a[q-1];
+            for(int q = p-1; q > 0; q--) a[q] = a[q] + a[q-1];
             p++;
         }
 
@@ -510,6 +510,6 @@ public class A
     }
 
     public static void main(String[] args) {
-        chengYaJiSuan();
+        yangHuiSanJiao();
     }
 }
