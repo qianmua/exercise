@@ -636,15 +636,19 @@ CPU消耗  < 1000ms
      */
     private static void diZhi(){
         int a = new Scanner(System.in).nextInt();
-        int f1 = a % 26,i,max = 0;
-        a -= f1;
-        for (i = 1; i <= 6 ; i++) {
-            if (a <= 26){
-                max = a;
-                break;
-            }else {
-                a /= 26;
+        int max = 0;
+        int arr[] = new int[7];
+        while(a > 0) {
+            max++;
+            arr[max]=a%26;
+            a/=26;
+            if(arr[max]==0) {
+                arr[max]=26;
+                a--;
             }
+        }
+        for(int j=max;j>0;j--) {
+            System.out.print((char)(arr[j]-1+'A'));
         }
     }
     public static void main(String[] args) {
