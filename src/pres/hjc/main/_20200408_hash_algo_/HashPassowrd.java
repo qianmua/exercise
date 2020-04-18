@@ -30,10 +30,10 @@ public class HashPassowrd {
             byte[] encryptUrl = messageDigest.digest(bytes);
             String semiFinishedProducts = new String(Base64.encode(encryptUrl));
             //加密url的长度我设置的6位. 加密的url取三位。剩下三位分别给静态盐1位和动态盐2位
-            String urlKey = semiFinishedProducts.substring(0,3);
+            String urlKey = semiFinishedProducts.substring(0,4);
             //位置可以在0-32位之间。这里可以选择位置。但是解密的时候就必须用同样的位置
-            String staticSalt = md5Util(urlKey+checkSalt).substring(4,5);
-            String dynaSalt = md5Util(""+ UUID.randomUUID()).substring(5,7);
+            String staticSalt = md5Util(urlKey+checkSalt).substring(5,6);
+            String dynaSalt = md5Util(""+ UUID.randomUUID()).substring(6,9);
             String encrypted = urlKey+staticSalt+dynaSalt;
             //标记量。用来加强短链接检查.这里输出查看下
             String sig = md5Util(encrypted);
@@ -49,12 +49,12 @@ public class HashPassowrd {
     }
     public static String getOriginUrl(String encrpetUrl,String sig){
         encrpetUrl = encrpetUrl.substring(encrpetUrl.lastIndexOf("/")+1);
-        String key = encrpetUrl.substring(0,3);
-        String staticSalt = encrpetUrl.substring(3,4);
+        String key = encrpetUrl.substring(0,4);
+        String staticSalt = encrpetUrl.substring(4,5);
         //和上面的检查盐一样
         String checkSalt = "C2NkXy3ECJn9AcMB976DnBKYJ2E7kEg9mYSte";
         //静态盐检查
-        String correctStaticSalt = md5Util(key+checkSalt).substring(4,5);
+        String correctStaticSalt = md5Util(key+checkSalt).substring(5,6);
         if (!staticSalt.equals(correctStaticSalt)){
             System.out.println(1);
             return "error";
