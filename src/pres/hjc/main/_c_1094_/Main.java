@@ -15,9 +15,14 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int a = scanner.nextInt();
+        int b = a-1;
         while (scanner.hasNext()){
             while (a-- >= 0) {
-                System.out.print(scanner.nextLine() + "\n\t");
+                String s1 = scanner.nextLine();
+                if (b == a){
+                    continue;
+                }
+                System.out.println(s1);
                 System.out.println(" ");
             }
             System.out.println(scanner.next());
