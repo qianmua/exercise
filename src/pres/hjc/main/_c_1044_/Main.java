@@ -1,5 +1,6 @@
 package pres.hjc.main._c_1044_;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 /**
@@ -14,6 +15,13 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-
+        String[] s = new String[3];
+        s[0] = scanner.next();
+        s[1] = scanner.next();
+        s[2] = scanner.next();
+        Arrays.sort(s);
+        for (String s1 : s) {
+            System.out.println(s1);
+        }
     }
 }
