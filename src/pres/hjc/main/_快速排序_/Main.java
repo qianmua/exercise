@@ -51,6 +51,10 @@ public class Main {
     }
 
 
+    /**
+     * 普通排序
+     * @param arr
+     */
     private static void sort2(int arr[]){
         for (int i = 0; i < arr.length; i++) {
             for (int j = 0; j < arr.length; j++) {
@@ -66,11 +70,13 @@ public class Main {
 
         long l = System.currentTimeMillis();
         sort(arr,0 ,arr.length-1);
-//        sort2(arr);
+        /*sort2(arr);*/
         long e = System.currentTimeMillis();
         System.out.println(e-l);
     }
+
     private static int arr[] = new int[100000];
+
     static{
         for (int i = 0; i < arr.length; i++) {
             arr[i] = new Random().nextInt(9999999);
