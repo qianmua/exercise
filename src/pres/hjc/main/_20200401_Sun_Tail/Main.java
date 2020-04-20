@@ -12,7 +12,7 @@ package pres.hjc.main._20200401_Sun_Tail;
 public class Main {
 
     public static void main(String[] args) {
-
+        System.out.println("adasdasd");
     }
 
 }
