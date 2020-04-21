@@ -1,5 +1,6 @@
 package pres.hjc.main._c_2114_;
 
+import java.math.BigInteger;
 import java.util.Scanner;
 
 /**
@@ -14,18 +15,18 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         long n = new Scanner(System.in).nextLong();
-        long sum = 0;
+        BigInteger sum = new BigInteger("0");
         for (long i = n; i > 0; i--) {
-             sum += f(i);
+             sum = sum.add(f(i));
         }
         System.out.println(sum);
     }
 
-    private static long f(long n){
+    private static BigInteger f(long n){
         if (n == 1){
-            return 1;
+            return new BigInteger("1");
         }
-        return n * f(--n);
+        return new BigInteger(String.valueOf(n)).multiply(f(--n)) ;
     }
 
 }
