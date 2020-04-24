@@ -16,6 +16,7 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         char a = 'A', b = 'B' , c = 'C';
         int n = scanner.nextInt();
+        // 次数 2^n - 1
         f(n,a,b,c);
         scanner.close();
     }
