@@ -67,9 +67,9 @@ class LoopQueue{
      */
     public int getFront() {
         if (!isEmpty()){
-            int temp = front;
+//            int temp = front;
             front = (this.front + 1) % maxSize;
-            return queue[temp];
+            return queue[front];
         }else {
             System.out.println("Empty");
             return -1;
@@ -82,7 +82,7 @@ class LoopQueue{
      */
     public void setFront(int rear) {
         if (!isFull()){
-            this.rear = (rear + 1 ) % maxSize;
+            this.rear = (this.rear + 1 ) % maxSize;
             this.queue[this.rear] = rear;
         }else {
             System.out.println("Full");
@@ -101,6 +101,12 @@ class LoopQueue{
         }else {
             System.out.println("Empty");
             return -1;
+        }
+    }
+
+    void loop(){
+        for (int i = 0; i < queue.length; i++) {
+            System.out.println(queue[i]);
         }
     }
 }
