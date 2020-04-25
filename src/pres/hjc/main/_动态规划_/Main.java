@@ -18,6 +18,14 @@ public class Main {
 
 绝技是能暴力则暴力，复杂度不允许就特判后台可能存在的极端样例。+
 */
+
+    /**
+     * 矩阵取值
+     * 1 3 3
+     * 2 1 3
+     * 2 2 1
+     * @param args
+     */
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         int n = scan.nextInt();
